@@ -68,24 +68,24 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		#if flash
 		
-		className.set ("graphics/preloader/haxepunk.png", __ASSET__graphics_preloader_haxepunk_png);
-		type.set ("graphics/preloader/haxepunk.png", AssetType.IMAGE);
-		className.set ("graphics/debug/console_debug.png", __ASSET__graphics_debug_console_debug_png);
-		type.set ("graphics/debug/console_debug.png", AssetType.IMAGE);
-		className.set ("graphics/debug/console_output.png", __ASSET__graphics_debug_console_output_png);
-		type.set ("graphics/debug/console_output.png", AssetType.IMAGE);
-		className.set ("graphics/debug/console_play.png", __ASSET__graphics_debug_console_play_png);
-		type.set ("graphics/debug/console_play.png", AssetType.IMAGE);
-		className.set ("graphics/debug/console_visible.png", __ASSET__graphics_debug_console_visible_png);
-		type.set ("graphics/debug/console_visible.png", AssetType.IMAGE);
-		className.set ("graphics/debug/console_logo.png", __ASSET__graphics_debug_console_logo_png);
-		type.set ("graphics/debug/console_logo.png", AssetType.IMAGE);
-		className.set ("graphics/debug/console_hidden.png", __ASSET__graphics_debug_console_hidden_png);
-		type.set ("graphics/debug/console_hidden.png", AssetType.IMAGE);
 		className.set ("graphics/debug/console_step.png", __ASSET__graphics_debug_console_step_png);
 		type.set ("graphics/debug/console_step.png", AssetType.IMAGE);
+		className.set ("graphics/debug/console_debug.png", __ASSET__graphics_debug_console_debug_png);
+		type.set ("graphics/debug/console_debug.png", AssetType.IMAGE);
+		className.set ("graphics/debug/console_visible.png", __ASSET__graphics_debug_console_visible_png);
+		type.set ("graphics/debug/console_visible.png", AssetType.IMAGE);
+		className.set ("graphics/debug/console_output.png", __ASSET__graphics_debug_console_output_png);
+		type.set ("graphics/debug/console_output.png", AssetType.IMAGE);
+		className.set ("graphics/debug/console_logo.png", __ASSET__graphics_debug_console_logo_png);
+		type.set ("graphics/debug/console_logo.png", AssetType.IMAGE);
+		className.set ("graphics/debug/console_play.png", __ASSET__graphics_debug_console_play_png);
+		type.set ("graphics/debug/console_play.png", AssetType.IMAGE);
 		className.set ("graphics/debug/console_pause.png", __ASSET__graphics_debug_console_pause_png);
 		type.set ("graphics/debug/console_pause.png", AssetType.IMAGE);
+		className.set ("graphics/debug/console_hidden.png", __ASSET__graphics_debug_console_hidden_png);
+		type.set ("graphics/debug/console_hidden.png", AssetType.IMAGE);
+		className.set ("graphics/preloader/haxepunk.png", __ASSET__graphics_preloader_haxepunk_png);
+		type.set ("graphics/preloader/haxepunk.png", AssetType.IMAGE);
 		className.set ("font/04B_03__.ttf", __ASSET__font_04b_03___ttf);
 		type.set ("font/04B_03__.ttf", AssetType.FONT);
 		className.set ("font/04B_03__.ttf.png", __ASSET__font_04b_03___ttf_png);
@@ -97,7 +97,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 		#elseif html5
 		
 		var id;
-		id = "graphics/preloader/haxepunk.png";
+		id = "graphics/debug/console_step.png";
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
@@ -105,15 +105,11 @@ class DefaultAssetLibrary extends AssetLibrary {
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
-		id = "graphics/debug/console_output.png";
-		path.set (id, id);
-		
-		type.set (id, AssetType.IMAGE);
-		id = "graphics/debug/console_play.png";
-		path.set (id, id);
-		
-		type.set (id, AssetType.IMAGE);
 		id = "graphics/debug/console_visible.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "graphics/debug/console_output.png";
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
@@ -121,15 +117,19 @@ class DefaultAssetLibrary extends AssetLibrary {
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
-		id = "graphics/debug/console_hidden.png";
-		path.set (id, id);
-		
-		type.set (id, AssetType.IMAGE);
-		id = "graphics/debug/console_step.png";
+		id = "graphics/debug/console_play.png";
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
 		id = "graphics/debug/console_pause.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "graphics/debug/console_hidden.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "graphics/preloader/haxepunk.png";
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
@@ -163,32 +163,32 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		var useManifest = false;
 		
-		className.set ("graphics/preloader/haxepunk.png", __ASSET__graphics_preloader_haxepunk_png);
-		type.set ("graphics/preloader/haxepunk.png", AssetType.IMAGE);
+		className.set ("graphics/debug/console_step.png", __ASSET__graphics_debug_console_step_png);
+		type.set ("graphics/debug/console_step.png", AssetType.IMAGE);
 		
 		className.set ("graphics/debug/console_debug.png", __ASSET__graphics_debug_console_debug_png);
 		type.set ("graphics/debug/console_debug.png", AssetType.IMAGE);
 		
-		className.set ("graphics/debug/console_output.png", __ASSET__graphics_debug_console_output_png);
-		type.set ("graphics/debug/console_output.png", AssetType.IMAGE);
-		
-		className.set ("graphics/debug/console_play.png", __ASSET__graphics_debug_console_play_png);
-		type.set ("graphics/debug/console_play.png", AssetType.IMAGE);
-		
 		className.set ("graphics/debug/console_visible.png", __ASSET__graphics_debug_console_visible_png);
 		type.set ("graphics/debug/console_visible.png", AssetType.IMAGE);
+		
+		className.set ("graphics/debug/console_output.png", __ASSET__graphics_debug_console_output_png);
+		type.set ("graphics/debug/console_output.png", AssetType.IMAGE);
 		
 		className.set ("graphics/debug/console_logo.png", __ASSET__graphics_debug_console_logo_png);
 		type.set ("graphics/debug/console_logo.png", AssetType.IMAGE);
 		
-		className.set ("graphics/debug/console_hidden.png", __ASSET__graphics_debug_console_hidden_png);
-		type.set ("graphics/debug/console_hidden.png", AssetType.IMAGE);
-		
-		className.set ("graphics/debug/console_step.png", __ASSET__graphics_debug_console_step_png);
-		type.set ("graphics/debug/console_step.png", AssetType.IMAGE);
+		className.set ("graphics/debug/console_play.png", __ASSET__graphics_debug_console_play_png);
+		type.set ("graphics/debug/console_play.png", AssetType.IMAGE);
 		
 		className.set ("graphics/debug/console_pause.png", __ASSET__graphics_debug_console_pause_png);
 		type.set ("graphics/debug/console_pause.png", AssetType.IMAGE);
+		
+		className.set ("graphics/debug/console_hidden.png", __ASSET__graphics_debug_console_hidden_png);
+		type.set ("graphics/debug/console_hidden.png", AssetType.IMAGE);
+		
+		className.set ("graphics/preloader/haxepunk.png", __ASSET__graphics_preloader_haxepunk_png);
+		type.set ("graphics/preloader/haxepunk.png", AssetType.IMAGE);
 		
 		className.set ("font/04B_03__.ttf", __ASSET__font_04b_03___ttf);
 		type.set ("font/04B_03__.ttf", AssetType.FONT);
@@ -842,15 +842,15 @@ class DefaultAssetLibrary extends AssetLibrary {
 #if !display
 #if flash
 
-@:keep @:bind #if display private #end class __ASSET__graphics_preloader_haxepunk_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
-@:keep @:bind #if display private #end class __ASSET__graphics_debug_console_debug_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
-@:keep @:bind #if display private #end class __ASSET__graphics_debug_console_output_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
-@:keep @:bind #if display private #end class __ASSET__graphics_debug_console_play_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
-@:keep @:bind #if display private #end class __ASSET__graphics_debug_console_visible_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
-@:keep @:bind #if display private #end class __ASSET__graphics_debug_console_logo_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
-@:keep @:bind #if display private #end class __ASSET__graphics_debug_console_hidden_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__graphics_debug_console_step_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__graphics_debug_console_debug_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__graphics_debug_console_visible_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__graphics_debug_console_output_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__graphics_debug_console_logo_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__graphics_debug_console_play_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__graphics_debug_console_pause_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__graphics_debug_console_hidden_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__graphics_preloader_haxepunk_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__font_04b_03___ttf extends null { }
 @:keep @:bind #if display private #end class __ASSET__font_04b_03___ttf_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__graphics_tiles_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
@@ -879,15 +879,15 @@ class DefaultAssetLibrary extends AssetLibrary {
 #if (windows || mac || linux || cpp)
 
 
-@:image("/usr/lib/haxe/lib/HaxePunk/2,5,6/assets/graphics/preloader/haxepunk.png") #if display private #end class __ASSET__graphics_preloader_haxepunk_png extends lime.graphics.Image {}
-@:image("/usr/lib/haxe/lib/HaxePunk/2,5,6/assets/graphics/debug/console_debug.png") #if display private #end class __ASSET__graphics_debug_console_debug_png extends lime.graphics.Image {}
-@:image("/usr/lib/haxe/lib/HaxePunk/2,5,6/assets/graphics/debug/console_output.png") #if display private #end class __ASSET__graphics_debug_console_output_png extends lime.graphics.Image {}
-@:image("/usr/lib/haxe/lib/HaxePunk/2,5,6/assets/graphics/debug/console_play.png") #if display private #end class __ASSET__graphics_debug_console_play_png extends lime.graphics.Image {}
-@:image("/usr/lib/haxe/lib/HaxePunk/2,5,6/assets/graphics/debug/console_visible.png") #if display private #end class __ASSET__graphics_debug_console_visible_png extends lime.graphics.Image {}
-@:image("/usr/lib/haxe/lib/HaxePunk/2,5,6/assets/graphics/debug/console_logo.png") #if display private #end class __ASSET__graphics_debug_console_logo_png extends lime.graphics.Image {}
-@:image("/usr/lib/haxe/lib/HaxePunk/2,5,6/assets/graphics/debug/console_hidden.png") #if display private #end class __ASSET__graphics_debug_console_hidden_png extends lime.graphics.Image {}
 @:image("/usr/lib/haxe/lib/HaxePunk/2,5,6/assets/graphics/debug/console_step.png") #if display private #end class __ASSET__graphics_debug_console_step_png extends lime.graphics.Image {}
+@:image("/usr/lib/haxe/lib/HaxePunk/2,5,6/assets/graphics/debug/console_debug.png") #if display private #end class __ASSET__graphics_debug_console_debug_png extends lime.graphics.Image {}
+@:image("/usr/lib/haxe/lib/HaxePunk/2,5,6/assets/graphics/debug/console_visible.png") #if display private #end class __ASSET__graphics_debug_console_visible_png extends lime.graphics.Image {}
+@:image("/usr/lib/haxe/lib/HaxePunk/2,5,6/assets/graphics/debug/console_output.png") #if display private #end class __ASSET__graphics_debug_console_output_png extends lime.graphics.Image {}
+@:image("/usr/lib/haxe/lib/HaxePunk/2,5,6/assets/graphics/debug/console_logo.png") #if display private #end class __ASSET__graphics_debug_console_logo_png extends lime.graphics.Image {}
+@:image("/usr/lib/haxe/lib/HaxePunk/2,5,6/assets/graphics/debug/console_play.png") #if display private #end class __ASSET__graphics_debug_console_play_png extends lime.graphics.Image {}
 @:image("/usr/lib/haxe/lib/HaxePunk/2,5,6/assets/graphics/debug/console_pause.png") #if display private #end class __ASSET__graphics_debug_console_pause_png extends lime.graphics.Image {}
+@:image("/usr/lib/haxe/lib/HaxePunk/2,5,6/assets/graphics/debug/console_hidden.png") #if display private #end class __ASSET__graphics_debug_console_hidden_png extends lime.graphics.Image {}
+@:image("/usr/lib/haxe/lib/HaxePunk/2,5,6/assets/graphics/preloader/haxepunk.png") #if display private #end class __ASSET__graphics_preloader_haxepunk_png extends lime.graphics.Image {}
 @:font("/usr/lib/haxe/lib/HaxePunk/2,5,6/assets/font/04B_03__.ttf") #if display private #end class __ASSET__font_04b_03___ttf extends lime.text.Font {}
 @:image("/usr/lib/haxe/lib/HaxePunk/2,5,6/assets/font/04B_03__.ttf.png") #if display private #end class __ASSET__font_04b_03___ttf_png extends lime.graphics.Image {}
 @:image("assets/graphics/tiles.png") #if display private #end class __ASSET__graphics_tiles_png extends lime.graphics.Image {}

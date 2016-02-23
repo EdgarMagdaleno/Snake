@@ -23,23 +23,23 @@ ApplicationMain.create = function() {
 	ApplicationMain.preloader.create(ApplicationMain.config);
 	var urls = [];
 	var types = [];
-	urls.push("graphics/preloader/haxepunk.png");
+	urls.push("graphics/debug/console_step.png");
 	types.push("IMAGE");
 	urls.push("graphics/debug/console_debug.png");
 	types.push("IMAGE");
-	urls.push("graphics/debug/console_output.png");
-	types.push("IMAGE");
-	urls.push("graphics/debug/console_play.png");
-	types.push("IMAGE");
 	urls.push("graphics/debug/console_visible.png");
+	types.push("IMAGE");
+	urls.push("graphics/debug/console_output.png");
 	types.push("IMAGE");
 	urls.push("graphics/debug/console_logo.png");
 	types.push("IMAGE");
-	urls.push("graphics/debug/console_hidden.png");
-	types.push("IMAGE");
-	urls.push("graphics/debug/console_step.png");
+	urls.push("graphics/debug/console_play.png");
 	types.push("IMAGE");
 	urls.push("graphics/debug/console_pause.png");
+	types.push("IMAGE");
+	urls.push("graphics/debug/console_hidden.png");
+	types.push("IMAGE");
+	urls.push("graphics/preloader/haxepunk.png");
 	types.push("IMAGE");
 	urls.push("04b03");
 	types.push("FONT");
@@ -69,7 +69,7 @@ ApplicationMain.init = function() {
 	if(total == 0) ApplicationMain.start();
 };
 ApplicationMain.main = function() {
-	ApplicationMain.config = { build : "111", company : "", file : "Main", fps : 60, name : "Snake", orientation : "", packageName : "com.example.app", version : "1.0.0", windows : [{ antialiasing : 0, background : 3355443, borderless : false, depthBuffer : false, display : 0, fullscreen : false, hardware : false, height : 480, parameters : "{}", resizable : true, stencilBuffer : true, title : "Snake", vsync : false, width : 640, x : null, y : null}]};
+	ApplicationMain.config = { build : "121", company : "", file : "Main", fps : 60, name : "Snake", orientation : "", packageName : "com.example.app", version : "1.0.0", windows : [{ antialiasing : 0, background : 3355443, borderless : false, depthBuffer : false, display : 0, fullscreen : false, hardware : false, height : 480, parameters : "{}", resizable : false, stencilBuffer : true, title : "Snake", vsync : false, width : 640, x : null, y : null}]};
 };
 ApplicationMain.start = function() {
 	var hasMain = false;
@@ -1834,31 +1834,31 @@ var DefaultAssetLibrary = function() {
 	lime_AssetLibrary.call(this);
 	openfl_text_Font.registerFont(_$_$ASSET_$_$OPENFL_$_$font_$04b_$03_$_$_$ttf);
 	var id;
-	id = "graphics/preloader/haxepunk.png";
+	id = "graphics/debug/console_step.png";
 	this.path.set(id,id);
 	this.type.set(id,"IMAGE");
 	id = "graphics/debug/console_debug.png";
 	this.path.set(id,id);
 	this.type.set(id,"IMAGE");
-	id = "graphics/debug/console_output.png";
-	this.path.set(id,id);
-	this.type.set(id,"IMAGE");
-	id = "graphics/debug/console_play.png";
-	this.path.set(id,id);
-	this.type.set(id,"IMAGE");
 	id = "graphics/debug/console_visible.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "graphics/debug/console_output.png";
 	this.path.set(id,id);
 	this.type.set(id,"IMAGE");
 	id = "graphics/debug/console_logo.png";
 	this.path.set(id,id);
 	this.type.set(id,"IMAGE");
-	id = "graphics/debug/console_hidden.png";
-	this.path.set(id,id);
-	this.type.set(id,"IMAGE");
-	id = "graphics/debug/console_step.png";
+	id = "graphics/debug/console_play.png";
 	this.path.set(id,id);
 	this.type.set(id,"IMAGE");
 	id = "graphics/debug/console_pause.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "graphics/debug/console_hidden.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "graphics/preloader/haxepunk.png";
 	this.path.set(id,id);
 	this.type.set(id,"IMAGE");
 	id = "font/04B_03__.ttf";
@@ -3188,7 +3188,6 @@ MainScene.prototype = $extend(com_haxepunk_Scene.prototype,{
 		com_haxepunk_utils_Input.define("Down",[40]);
 		com_haxepunk_utils_Input.define("Up",[38]);
 		this.drawGrid();
-		this.grid.setTile(1,1,0);
 	}
 	,drawGrid: function() {
 		var _g1 = 0;
@@ -3230,8 +3229,8 @@ MainScene.prototype = $extend(com_haxepunk_Scene.prototype,{
 			while(_g3 < _g2) {
 				var row = _g3++;
 				if(!this.snake.isBodyPart(column,row)) {
-					if(this.isFruit(column,row)) this.grid.setTile(column,row,1); else this.grid.clearTile(column,row);
-				} else this.grid.setTile(column,row,0);
+					if(this.isFruit(column,row)) this.grid.setTile(column,row,1); else this.grid.setTile(column,row,0);
+				} else this.grid.setTile(column,row,2);
 			}
 		}
 	}

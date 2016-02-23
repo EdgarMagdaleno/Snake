@@ -25,7 +25,6 @@ class MainScene extends Scene {
 		Input.define("Down", [Key.DOWN]);
 		Input.define("Up", [Key.UP]);
 		drawGrid();
-		grid.setTile(1, 1, 0);
 	}
 
 	public function drawGrid():Void {
@@ -39,9 +38,9 @@ class MainScene extends Scene {
 		checkInput();
 
 		if ( elapsed > .06 ) {
-			snake.move(direction);
 			refresh();
-			
+			snake.move(direction);
+
 			elapsed = 0;
 			if ( snake.body[0].column == fruit.column &&  snake.body[0].row == fruit.row ) {
 				snake.grow();
@@ -58,13 +57,13 @@ class MainScene extends Scene {
 		else if ( Input.pressed("Left") && direction != 2 ) direction = 4;
 	}
 
-	public function refresh():Void {
+	public function refresh() {
 		for ( column in 0 ... grid.columns )
 			for ( row in 0 ... grid.rows )
 				if ( !snake.isBodyPart(column, row) )
 					if ( isFruit(column, row) )
 						grid.setTile(column, row, 1);
-					else grid.clearTile(column, row);
+					else grid.setTile(column, row, 2);
 				else grid.setTile(column, row , 0);
 	}
 
@@ -77,9 +76,11 @@ class MainScene extends Scene {
 class Snake {
 	public var body:Array<BodyPart>;
 	private var grid:Tilemap;
+	public var stop:Bool;
 
 	public function new(headColumn:Int, headRow:Int, grid:Tilemap) {
 		this.grid = grid;
+		stop = false;
 		body = new Array<BodyPart>();
 		body.push(new BodyPart(headColumn, headRow));
 		body.push(new BodyPart(headColumn - 1, headRow));
@@ -99,6 +100,27 @@ class Snake {
 			case 4:
 				body.insert(0, new BodyPart(body[0].column - 1, body[0].row));
 		}
+
+		if ( checkCollision() ) stop = true;
+	}
+
+	public function endGame():Void {
+		for ( part in body ) {
+			grid.setTile(part.column, part.row, 2);
+			Sys.sleep(.5);
+			grid.setTile(part.column, part.row, 0);
+		}
+
+		HXP.scene = new MainScene();
+	}
+
+	public function checkCollision():Bool {
+		for ( x in 0 ... body.length ) 
+			for ( y in 0 ... body.length )
+				if ( x != y )
+					if ( body[x].column == body[y].column && body[x].row == body[y].row )
+						return true;
+		return false;
 	}
 
 	public function grow():Void {

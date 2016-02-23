@@ -30,7 +30,7 @@ class ApplicationMain {
 		var types = [];
 		
 		
-		urls.push ("graphics/preloader/haxepunk.png");
+		urls.push ("graphics/debug/console_step.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
@@ -38,15 +38,11 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
-		urls.push ("graphics/debug/console_output.png");
-		types.push (lime.Assets.AssetType.IMAGE);
-		
-		
-		urls.push ("graphics/debug/console_play.png");
-		types.push (lime.Assets.AssetType.IMAGE);
-		
-		
 		urls.push ("graphics/debug/console_visible.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("graphics/debug/console_output.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
@@ -54,15 +50,19 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
-		urls.push ("graphics/debug/console_hidden.png");
-		types.push (lime.Assets.AssetType.IMAGE);
-		
-		
-		urls.push ("graphics/debug/console_step.png");
+		urls.push ("graphics/debug/console_play.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
 		urls.push ("graphics/debug/console_pause.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("graphics/debug/console_hidden.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("graphics/preloader/haxepunk.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
@@ -139,7 +139,7 @@ class ApplicationMain {
 		
 		config = {
 			
-			build: "111",
+			build: "121",
 			company: "",
 			file: "Main",
 			fps: 60,
@@ -159,7 +159,7 @@ class ApplicationMain {
 					hardware: false,
 					height: 480,
 					parameters: "{}",
-					resizable: true,
+					resizable: false,
 					stencilBuffer: true,
 					title: "Snake",
 					vsync: false,
