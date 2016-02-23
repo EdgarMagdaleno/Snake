@@ -10,12 +10,14 @@ class MainScene extends Scene {
 	var grid:Tilemap;
 	var direction:Int;
 	var snake:Snake;
-	var fruit:Fruit;
+	var fruit:BodyPart;
+	var elapsed:Float;
 	public override function begin() {
+		elapsed = 0;
 		grid = new Tilemap("graphics/tiles.png", 640, 480, 20, 20);
 		direction = 2;
-		snake = new Snake(2, 2);
-		fruit = new Fruit(5, 5);
+		snake = new Snake(5, 2, grid);
+		fruit = new BodyPart(5, 5);
 		addGraphic(grid, 0, 0, 0);
 
 		Input.define("Right", [Key.RIGHT]);
@@ -23,6 +25,7 @@ class MainScene extends Scene {
 		Input.define("Down", [Key.DOWN]);
 		Input.define("Up", [Key.UP]);
 		drawGrid();
+		grid.setTile(1, 1, 0);
 	}
 
 	public function drawGrid():Void {
@@ -34,15 +37,25 @@ class MainScene extends Scene {
 
 	public override function update():Void {
 		checkInput();
-		refresh();
-		snake.move(direction);
+
+		if ( elapsed > .06 ) {
+			snake.move(direction);
+			refresh();
+			
+			elapsed = 0;
+			if ( snake.body[0].column == fruit.column &&  snake.body[0].row == fruit.row ) {
+				snake.grow();
+				fruit.column = Std.random(grid.columns);
+				fruit.row = Std.random(grid.rows);
+			}
+		} else elapsed += HXP.timeFlag();
 	}
 
 	public function checkInput():Void {
-		if ( Input.pressed("Up") ) direction = 1;
-		else if ( Input.pressed("Right") ) direction = 2;
-		else if ( Input.pressed("Down") ) direction = 3;
-		else if ( Input.pressed("Left") ) direction = 4;
+		if ( Input.pressed("Up") && direction != 3 ) direction = 1;
+		else if ( Input.pressed("Right") && direction != 4 ) direction = 2;
+		else if ( Input.pressed("Down") && direction != 1 ) direction = 3;
+		else if ( Input.pressed("Left") && direction != 2 ) direction = 4;
 	}
 
 	public function refresh():Void {
@@ -62,25 +75,35 @@ class MainScene extends Scene {
 }
 
 class Snake {
-	private var body:Array<BodyPart>;
+	public var body:Array<BodyPart>;
+	private var grid:Tilemap;
 
-	public function new(headColumn:Int, headRow:Int) {
+	public function new(headColumn:Int, headRow:Int, grid:Tilemap) {
+		this.grid = grid;
 		body = new Array<BodyPart>();
 		body.push(new BodyPart(headColumn, headRow));
+		body.push(new BodyPart(headColumn - 1, headRow));
+		body.push(new BodyPart(headColumn - 2, headRow));
+
 	}
 
 	public function move(direction:Int):Void {
-		for (part in body)
-			switch ( direction ) {
-				case 1: part.row--; break;
-				case 2: part.column++; break;
-				case 3: part.row++; break;
-				case 4: part.column--; break;
-			}
+		body.pop();
+		switch ( direction ) {
+			case 1:
+				body.insert(0, new BodyPart(body[0].column, body[0].row - 1));
+			case 2:
+				body.insert(0, new BodyPart(body[0].column + 1, body[0].row));
+			case 3:
+				body.insert(0, new BodyPart(body[0].column, body[0].row + 1));
+			case 4:
+				body.insert(0, new BodyPart(body[0].column - 1, body[0].row));
+		}
 	}
 
 	public function grow():Void {
-
+		var tmp:BodyPart = new BodyPart(body[body.length - 1].column, body[body.length - 1].row);
+		body.push(tmp);
 	}
 
 	public function isBodyPart(column:Int, row:Int):Bool {
@@ -92,16 +115,6 @@ class Snake {
 }
 
 class BodyPart {
-	public var column:Int;
-	public var row:Int;
-
-	public function new(column:Int, row:Int):Void {
-		this.column = column;
-		this.row = row;
-	}
-}
-
-class Fruit {
 	public var column:Int;
 	public var row:Int;
 

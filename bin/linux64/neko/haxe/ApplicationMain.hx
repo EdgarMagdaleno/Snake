@@ -532,7 +532,7 @@ class ApplicationMain {
 		
 		config = {
 			
-			build: "56",
+			build: "108",
 			company: "",
 			file: "Main",
 			fps: 60,
